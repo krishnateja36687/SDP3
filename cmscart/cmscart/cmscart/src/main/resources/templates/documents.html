@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <div th:replace="/fragments/head::heads"></div>
+	<body th:object="${appli}">
+    <nav th:replace="/fragments/nav::nav-front"></nav>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-4">
+					<h2 class="heading-section">Documents</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="h5 mb-4 text-center">Uploaded documents</h3>
+					<div class="table-wrap">
+						<table class="table">
+						  <thead class="thead-primary">
+						    <tr>
+						    	
+						    	<th>image</th>
+						      <th>id</th>
+						      
+						    </tr>
+						  </thead>
+						  <tbody >
+						    <tr class="alert" role="alert">
+						    	<td>
+						    		<img class="img" th:src="@{${appli.getPhotosImagePath()}}">
+						    	</td>
+						      <td>
+						      	<div>
+						      		<h3 th:text="${appli.getId()}"></h3>
+						      	</div>
+						      </td>
+						      
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js5/jquery.min.js"></script>
+  <script src="js5/popper.js"></script>
+  <script src="js5/bootstrap.min.js"></script>
+  <script src="js5/main.js"></script>
+
+	</body>
+</html>
+

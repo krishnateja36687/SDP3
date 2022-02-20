@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Homepage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css5/style.css">
+
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
+      width: 40%;
+      border-radius: 5px;
+    }
+    
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    }
+    
+    img {
+      border-radius: 5px 5px 0 0;
+    }
+    
+    .container {
+      padding: 2px 16px 6px 6px;
+    }
+    </style>
+
+	</head>
+	<body>
+    <nav th:replace="/fragments/nav::nav-front"></nav>
+	<section class="ftco-section">
+
+    <div class="col-7" th:utext="${pages.content}"></div>
+	
+	</section>
+  <div class="row mx-md-n5">
+  <div class="card col-sm-3">
+    <img src="images/photosai.png" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Jane Doe</b></h4> 
+      <p>Interior Designer</p> 
+    </div>
+  </div>
+  <br><br>
+  <div class="card col-sm-3 ">
+    <img src="images/teja.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Jane Doe</b></h4> 
+      <p>Interior Designer</p> 
+    </div>
+  </div>
+  <div class="card col-sm-4">
+    <img src="images/slider-1.jpg" alt="Avatar" style="width:100%">
+    <div class="container">
+      <h4><b>Jane Doe</b></h4> 
+      <p>Interior Designer</p> 
+    </div>
+  </div>
+</div>
+
+	<script src="js4/jquery.min.js"></script>
+  <script src="js4/popper.js"></script>
+  <script src="js4/bootstrap.min.js"></script>
+  <script src="js4/main.js"></script>
+
+	</body>
+</html>
+

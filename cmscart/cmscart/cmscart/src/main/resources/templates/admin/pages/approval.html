@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <div th:replace="/fragments/head::heads"></div>
+	<body>
+  <nav th:replace="/fragments/nav::nav-admin"></nav>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Approval Page</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap" th:if=${!full.empty}>
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+                  <th>id</th>
+                   <th>Email</th>
+                  <th>Password</th>
+                  <th>Access</th>
+                  <th>Approval</th>
+                  <th>Delete</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr th:each="page: ${full}">
+
+                  <td  scope="row" th:text="${page.id}"></td>
+                  <td th:text="${page.email}"></td>
+                  <td th:text="${page.password}"></td>
+                  <td th:text="${page.accessmanager}"></td>
+                  <td><a th:href="@{'/admin/pages/approval/' + ${page.id}}">Approval</a></td>
+                  <td><a th:href="@{'/admin/pages/delete1/' + ${page.id}}">delete</a></td>
+
+                 
+						      
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+    <div th:unless=${!full.empty}>
+      <p>there are no submissions</p>
+    </div>
+	</section>
+ 
+
+	</body>
+</html>
+
+

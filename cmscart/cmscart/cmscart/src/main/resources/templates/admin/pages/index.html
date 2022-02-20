@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<div th:replace="/fragments/head::heads"></div>
+  <body>
+    
+    <nav th:replace="/fragments/nav::nav-admin"></nav>
+<main class="container">
+  
+  <h3>ADD PAGE</h3>
+    
+    <div class="row">
+      <a href="/admin/pages/add" class="btn btn-primary">Add new</a>
+    <div th:if="${message}" th:text="${message}" th:class="${'alert'+alertclass}"></div>
+
+      <div class="col-md-12">
+        <div class="table-wrap" th:if=${!pages.empty}>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Title</th>
+              <th>slug</th>
+              <th>Edit</th>
+              <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr th:each="page: ${pages}">
+    
+              <td scope="row" th:text="${page.title}"></td>
+              <td th:text="${page.slug}"></td>
+              <td><a th:href="@{'/admin/pages/edit/' + ${page.id}}">Edit</a></td>
+              <td><a th:if="${page.slug!='home'}" th:href="@{'/admin/pages/delete/' + ${page.id}}">Delete</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div th:unless=${!pages.empty}>
+      <p>there are no pages</p>
+    </div>
+
+</main>
+
+
+<div th:replace="/fragments/footer"></div>
+
+      
+  </body>
+</html>
+
+
+
+

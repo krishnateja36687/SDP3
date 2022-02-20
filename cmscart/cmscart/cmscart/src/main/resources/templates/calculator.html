@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div th:replace="/fragments/head::heads"></div>
+  
+<head>
+    <title>Loan Calculator</title>
+  
+    <style>
+        body {
+            background-image: url("images/background2.jpg");
+            font-family: 'Trebuchet MS';
+            background-repeat: no-repeat
+            
+        }
+          
+        h1 {
+            font-size: 35px;
+        }
+          
+        h1 {
+            font-size: 21px;
+            margin-top: 20px;
+        }
+          
+        .calculator {
+            width: 400px;
+            height: 450px;
+            background-color: lightblue;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            padding: 20px 0px 0px 100px;
+            border-radius: 50px;
+            color: white;
+        }
+          
+        input {
+            padding: 7px;
+            width: 70%;
+            margin-top: 7px;
+        }
+    </style>
+</head>
+<body>
+    <nav th:replace="/fragments/nav::nav-front"></nav>
+    <div class="calculator">
+        <h1>Loan Calculator</h1>
+  
+        <p>Amount  :
+            <input id="amount" type="number" 
+            onchange="Calculate()">
+        </p>
+  
+        <p>Interest Rate  :
+            <input id="rate" type="number" 
+            onchange="Calculate()">
+        </p>
+  
+        <p>Months to Pay :
+            <input id="months" type="number" 
+            onchange="Calculate()">
+        </p>
+  
+        <h2 id="total"></h2>
+    </div>
+  
+    <script src="app.js"></script>
+</body>
+  
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<div th:replace="/fragments/head::heads"></div>
+  <body style="background-color: #fff;">
+    
+    <nav th:replace="/fragments/nav::nav-front"></nav>
+<main class="container">
+  
+    <h1  class="display-4" th:utext="${apply.content}"></h1>
+    <h5 class="display-8 alert alert-danger" >You should fill  the loan application with your login email</h5>
+    
+    <div th:if="${message}" th:text="${message}" th:class="${'alert'+alertclass}"></div>
+
+    <form method="post" th:object="${form}" th:action="@{/apply}" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="">Enter your name</label>
+        <input type="text" class="form-control" th:field="*{name}"  placeholder="Title">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="">Enter you email </label>
+        <input type="text" class="form-control" th:field="*{email}" placeholder="Enter your mail">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="">enter your address </label>
+        <textarea  rows="5" class="form-control" th:field="*{address}" placeholder="Enter your address"></textarea>
+      </div>
+      <br>
+
+      <div class="form-group">
+        <label for="">Enter you phone no </label>
+        <input type="text" class="form-control" th:field="*{phoneno}" placeholder="Enter your phoneno">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="">Loan amount </label>
+        <input type="text" class="form-control" th:field="*{loanamount}" placeholder="Enter your loan amount">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="">Income</label>
+        <input type="text" class="form-control" th:field="*{income}" placeholder="Enter your income">
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="">Loan Type</label>
+        <input type="text" class="form-control" th:field="*{type}" placeholder="Enter your type of loan">
+      </div>
+      <br>
+      <div class="form-group col-md-6">
+        <label>Documents: </label>
+        <input type="file"  name="image" accept="image/png, image/jpeg" /></div>
+        <br>
+      <button class="btn btn-success">Submit</button>
+    </form>
+
+   
+    
+
+</main>
+
+
+<div th:replace="/fragments/footer"></div>
+
+      
+  </body>
+</html>
+
+
+

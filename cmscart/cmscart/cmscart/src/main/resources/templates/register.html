@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"  xmlns:th="https://thymeleaf.org">
+  <head>
+  	<title>Login 10</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css2/style.css">
+
+	</head>
+  <nav th:replace="/fragments/nav::nav-home"></nav>
+	<body class="img js-fullheight" style="background-image: url(images/bg.jpg);">
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Register Page</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6 col-lg-4">
+					<div class="login-wrap p-0">
+            <form  id="signup-form" class="signup-form" method="post" th:object="${register}" th:action="@{/register}">
+              <h2>Sign up </h2>
+              <div class="form-group">
+                  <input type="text" class="form-control" name="name" id="name"  th:field="*{name}" placeholder="Your Name"/>
+              </div>
+              <div class="form-group">
+                  <input type="email" class="form-control" name="email" id="email"  th:field="*{email}" placeholder="Email"/>
+              </div>
+              <div class="form-group">
+                  <input type="password" class="form-control" name="password" id="password-field" th:field="*{password}" placeholder="Password"/>
+                  <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+              </div>
+              <div class="form-group">
+      
+                <input type="text" rows="10" class="form-control" name="address" id="address" th:field="*{address}" placeholder="Address">
+              </div>
+
+              <div class="form-group">
+                <input type="text" class="form-control" name="gender" id="gender"   th:field="*{gender}"  placeholder="Enter Gender"/>
+            </div>
+              <div class="form-group">
+                  <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                  <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+              </div>
+              <div class="form-group">
+                  <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign up"/>
+                  <a href="#" class="submit-link submit">Sign in</a>
+              </div>
+          </form>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js1/jquery.min.js"></script>
+  <script src="js1/popper.js"></script>
+  <script src="js1/bootstrap.min.js"></script>
+  <script src="js1/main.js"></script>
+
+	</body>
+</html>
+

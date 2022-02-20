@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Homepage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css5/style.css">
+
+	</head>
+	<body>
+  <nav th:replace="/fragments/nav::nav-front"></nav>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Balance Page</h2>
+				</div>
+			</div>
+      <div class="overlay text-center d-none">
+        <h4 class="display-4">you are being to redirected paypal.....</h4>
+    </div>
+			<div class="row">
+        <form method="post" th:object="${login}"th:action="@{/balance}" >
+          <div class="form-group">
+            <label for="">Enter your email </label>
+            <input type="text" class="form-control" th:field="*{email1}" th:value="${email}" placeholder="enter mail">
+          </div>
+      </form>
+				<div class="col-md-12">
+					<div class="table-wrap" th:if=${!full.empty}>
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+                  <th>id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>loan amount</th>
+                  <th>Status</th>
+                  <th>Pay</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr th:each="page: ${full}">
+
+                  <td scope="row" th:if="${page.email==email and page.roles=='Completed'}" th:text="${page.id}"></td>
+                  <td th:if="${page.email==email and page.roles=='Completed'}" th:text="${page.name}"></td>
+                  <td th:if="${page.email==email and page.roles=='Completed'}"th:text="${page.email}"></td>
+                  <td th:if="${page.email==email and page.roles=='Completed'}" th:text="${page.loanamount}"></td>
+                  <td th:if="${page.email==email and page.roles=='Completed'}" th:text="${page.roles}"></td>
+                  <td th:if="${page.email==email and page.roles=='Completed'}">
+                       <a th:onclick="'javascript:function();'"
+                       class="pay btn btn-success ">Pay</a></td>
+						      
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+    <div th:unless=${!full.empty}>
+      <p>there are no submissions</p>
+    </div>
+	</section>
+  <div class="paypaldiv">
+    <form action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method = "post" id="paypalform">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="upload" value="1">
+        <input type="hidden" name="business" value="bestbank@gmail.com">
+
+        <input type="hidden" name="currency_code" value="usd">
+        <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with paypal - it's fast, free and secure">
+
+
+    </form>
+</div>
+
+	<script src="js4/jquery.min.js"></script>
+  <script src="js4/popper.js"></script>
+  <script src="js4/bootstrap.min.js"></script>
+  <script src="js4/main.js"></script>
+  <script>
+    $(function(){
+        $("a.pay").click(function (e) {
+            e.preventDefault();
+            $("div.overlay").removeClass("d-none");
+            $("form#paypalform").submit();
+        })
+    });
+</script>
+
+	</body>
+</html>
+
+

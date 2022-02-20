@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Loan Types</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css5/style.css">
+
+	</head>
+	<body>
+  <nav th:replace="/fragments/nav::nav-front"></nav>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Loan Types</h2>
+				</div>
+			</div>
+			<div class="row">
+        <form method="post" th:object="${type}"th:action="@{/plans}" >
+          <div class="form-group">
+            <label for="">Enter your type loan </label>
+            <input type="text" class="form-control opacity-25" th:field="*{loantype}" th:value="${loant}" placeholder="home,gold,car">
+          </div>
+      </form>
+				<div class="col-md-12">
+					<div class="table-wrap" th:if=${!full.empty}>
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+                  <th>id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>loan amount</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Check</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr th:each="page: ${full}">
+
+                  <td scope="row" th:if="${page.email==email and page.type==loant}" th:text="${page.id}"></td>
+                  <td th:if="${page.email==email and page.type==loant}" th:text="${page.name}"></td>
+                  <td th:if="${page.email==email and page.type==loant}"th:text="${page.email}"></td>
+                  <td th:if="${page.email==email and page.type==loant}" th:text="${page.loanamount}"></td>
+                  <td th:if="${page.email==email and page.type==loant}" th:text="${page.roles}"></td>
+                  <td th:if="${page.email==email and page.type==loant}" th:text="${page.type}"></td>
+                  <td th:if="${page.email==email and page.type==loant}"><a class="btn btn-success" th:href="@{'/documents/' + ${page.id}}">click here</a></td>
+						      
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+    <div th:unless=${!full.empty}>
+      <p>there are no submissions</p>
+    </div>
+	</section>
+  <div class="paypaldiv">
+    <form action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method = "post" id="paypalform">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="upload" value="1">
+        <input type="hidden" name="business" value="bestbank@gmail.com">
+
+        <input type="hidden" name="currency_code" value="usd">
+        <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit" alt="Make payments with paypal - it's fast, free and secure">
+
+
+    </form>
+</div>
+
+	<script src="js4/jquery.min.js"></script>
+  <script src="js4/popper.js"></script>
+  <script src="js4/bootstrap.min.js"></script>
+  <script src="js4/main.js"></script>
+ 
+
+	</body>
+</html>
+
+

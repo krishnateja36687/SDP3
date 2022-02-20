@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Homepage</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css5/style.css">
+
+	</head>
+	<body>
+  <nav th:replace="/fragments/nav::nav-front"></nav>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Applications</h2>
+				</div>
+			</div>
+      <div class="col-7" th:utext="${pages.content}"></div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap" th:if=${!full.empty}>
+						<table class="table table-striped">
+						  <thead>
+						    <tr>
+						      <th>id</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>loan amount</th>
+                  <th>Status</th>
+                  <th>Checking</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr th:each="page: ${full}">
+						      <td scope="row" th:if="${page.email==email}" th:text="${page.id}"></td>
+                  <td th:if="${page.email==email}" th:text="${page.name}"></td>
+                  <td th:if="${page.email==email}"th:text="${page.email}"></td>
+                  <td th:if="${page.email==email}" th:text="${page.loanamount}"></td>
+                  <td th:if="${page.email==email}" th:text="${page.roles}"></td>
+                  <td th:if="${page.email==email}"><a th:href="@{'/documents/' + ${page.id}}" class="btn btn-success">click here</a></td>
+						    </tr>
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+    <div th:unless=${!full.empty}>
+      <p>there are no submissions</p>
+    </div>
+	</section>
+
+	<script src="js4/jquery.min.js"></script>
+  <script src="js4/popper.js"></script>
+  <script src="js4/bootstrap.min.js"></script>
+  <script src="js4/main.js"></script>
+
+	</body>
+</html>
+

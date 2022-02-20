@@ -1,0 +1,99 @@
+<nav class="navbar navbar-expand-md navbar-light" style="background-color: #e3f2fd;" th:fragment="nav-front">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/login">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item" th:each="page: ${cpages}">
+            <a class="nav-link" th:if="${page.slug!='home' && page.slug!='register' && page.slug!='documents'}" th:href="@{'/'+${page.slug}}" th:text="${page.title}"></a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+
+  <nav class="navbar navbar-expand-md navbar-light" th:fragment="nav-admin" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" target="_blank">ADMIN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin/pages">Pages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" th:href="@{/admin/pages/approval}">Approval</a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+
+
+  <nav class="navbar navbar-expand-md navbar-light " th:fragment="nav-home" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="${bestbank}" target="_blank">BestBank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/register">register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Manager">Manager</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">Admin</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-md navbar-dark  bg-dark" th:fragment="nav-manager">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/" target="_blank">Best Bank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/approval1">Approval</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <nav class="navbar navbar-expand-md navbar-light " th:fragment="nav-loginmanager" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" th:href="${bestbank}" target="_blank">BestBank</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/Manager">Manager</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

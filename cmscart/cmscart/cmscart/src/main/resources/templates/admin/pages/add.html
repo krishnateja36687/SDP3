@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+
+<div th:replace="/fragments/head::heads"></div>
+  <body>
+    
+    <nav th:replace="/fragments/nav::nav-admin"></nav>
+<main class="container">
+  
+    <h1 class="display-2">Admin pages</h1>
+    <a href="/admin/pages" class="btn btn-primary">Back to pages</a>
+
+    <div th:if="${message}" th:text="${message}" th:class="${'alert'+alertclass}"></div>
+
+    <form method="post" th:object="${page}" th:action="@{/admin/pages/add}">
+      <div class="form-group">
+        <label for="">Title</label>
+        <input type="text" class="form-control" th:field="*{title}"  placeholder="Title">
+      </div>
+
+      <div class="form-group">
+        <label for="">Slug</label>
+        <input type="text" class="form-control" th:field="*{slug}" placeholder="Slug">
+      </div>
+
+      <div class="form-group">
+        <label for="">Content</label>
+        <textarea  rows="10" class="form-control" th:field="*{content}"></textarea>
+      </div>
+
+      <button class="btn btn-danger">ADD</button>
+    </form>
+
+   
+    
+
+</main>
+
+
+<div th:replace="/fragments/footer"></div>
+
+      
+  </body>
+</html>

@@ -1,0 +1,13 @@
+     package com.example.cmscart;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CmscartApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CmscartApplication.class, args);
+	}
+
+}
